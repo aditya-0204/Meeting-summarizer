@@ -84,7 +84,7 @@
           "owner": ":null",
           "deadline": "next week",
           "priority": "medium",
-          "status": "in_progress"
+          "status": "completed"
         },
         {
           "id": "act-2",
@@ -92,7 +92,7 @@
           "owner": ":null",
           "deadline": ":null",
           "priority": "medium",
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "act-3",
@@ -108,7 +108,7 @@
           "owner": ":null",
           "deadline": ":null",
           "priority": "medium",
-          "status": "pending"
+          "status": "completed"
         }
       ],
       "risksAndOpenQuestions": [
@@ -119,7 +119,7 @@
     "audioStoragePath": "D:\\coding\\College-projects\\meeting-summarizer\\uploads\\meeting-1787485179641-40090123.mp4",
     "hasAudio": true,
     "createdAt": "2026-08-23T11:39:39.707Z",
-    "updatedAt": "2026-08-23T11:41:39.105Z",
+    "updatedAt": "2026-08-23T11:47:06.992Z",
     "cloudinaryUrl": "https://res.cloudinary.com/dxt7c4h3c/video/upload/v1787485203/meeting-summarizer/meet_1787485179707_0ljby1.mp4",
     "cloudinaryPublicId": "meeting-summarizer/meet_1787485179707_0ljby1",
     "processedAt": "2026-08-23T11:41:05.659Z"
