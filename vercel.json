@@ -7,6 +7,9 @@
     "api/health.ts": {
       "maxDuration": 60
     },
+    "api/meetings/index.ts": {
+      "maxDuration": 60
+    },
     "api/meetings/[...path].ts": {
       "maxDuration": 60
     }

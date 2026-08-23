@@ -66,7 +66,7 @@ export const MeetingApiClient = {
     >(url, { method: 'GET' });
 
     return response.data;
-  },
+  },  
 
   /**
    * Fetch single meeting details with full transcript and summary

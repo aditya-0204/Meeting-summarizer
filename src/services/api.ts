@@ -14,14 +14,14 @@ export async function request<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const url = endpoint.startsWith('http') ? endpoint : endpoint;
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const url = endpoint.startsWith('http') ? endpoint : `${BASE_URL}${endpoint}`;
   
   const headers: Record<string, string> = {
     Accept: 'application/json',
     ...(options.headers as Record<string, string> || {})
   };
 
-  // Don't set Content-Type if body is FormData (browser will set multipart/form-data boundary automatically)
   if (!(options.body instanceof FormData) && !headers['Content-Type']) {
     headers['Content-Type'] = 'application/json';
   }
