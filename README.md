@@ -65,9 +65,6 @@ A production-oriented, full-stack Meeting Intelligence Platform designed to inge
 5. **Pre-Loaded Enterprise Sample Scenarios**:
    - Ready-to-analyze scenarios including Cloud Architecture Migration, Product Sprint Planning, and Incident Postmortems.
 
-6. **Comprehensive Automated Test Suite**:
-   - In-app interactive test runner verifying REST endpoints, negative validation cases, sample ingestion, and action item mutations.
-
 ---
 
 ## 📡 REST API Reference
@@ -87,10 +84,13 @@ A production-oriented, full-stack Meeting Intelligence Platform designed to inge
 
 ---
 
-## 🧪 Testing & Verification
+## 🧪 Backend Verification
 
-1. **In-App Integration Runner**: Click **"Run Test Suite"** in the top navigation bar to execute live end-to-end API tests.
-2. **Backend Unit Tests**: Run `npx tsx server/tests/meeting.test.ts` to execute automated assertions on validators and the database repository.
+Run the backend test suite with:
+
+```powershell
+npx tsx server/tests/meeting.test.ts
+```
 
 ## Getting Started
 

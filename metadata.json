@@ -1,0 +1,7 @@
+{
+  "name": "Meeting Summarizer",
+  "description": "Production-grade meeting intelligence platform that transcribes audio recordings, extracts key decisions, synthesizes executive summaries, and tracks action items.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
