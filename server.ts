@@ -5,7 +5,7 @@ import meetingRoutes from './server/routes/meetingRoutes.js';
 import { errorHandler } from './server/middleware/errorHandler.js';
 import { config } from './server/config/env.js';
 
-async function startServer() {
+export async function createApp(serveFrontend = process.env.VERCEL !== '1') {
   const app = express();
   // Middleware for parsing JSON and URL-encoded bodies
   app.use(express.json({ limit: '10mb' }));
@@ -36,6 +36,10 @@ async function startServer() {
   app.use(errorHandler);
 
   // Vite middleware for development vs static asset serving in production
+  if (!serveFrontend) {
+    return app;
+  }
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -50,12 +54,16 @@ async function startServer() {
     });
   }
 
-  app.listen(config.port, '0.0.0.0', () => {
-    console.log(`[Meeting Summarizer] Server listening on http://0.0.0.0:${config.port}`);
-  });
+  return app;
 }
 
-startServer().catch((err) => {
-  console.error('Fatal server boot error:', err);
-  process.exit(1);
-});
+if (process.env.VERCEL !== '1') {
+  createApp().then((app) => {
+    app.listen(config.port, '0.0.0.0', () => {
+      console.log(`[Meeting Summarizer] Server listening on http://0.0.0.0:${config.port}`);
+    });
+  }).catch((err) => {
+    console.error('Fatal server boot error:', err);
+    process.exit(1);
+  });
+}

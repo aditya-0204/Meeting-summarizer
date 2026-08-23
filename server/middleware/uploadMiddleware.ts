@@ -1,10 +1,13 @@
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import { config } from '../config/env.js';
 
 // Setup uploads storage folder
-const uploadsDir = path.join(process.cwd(), 'uploads');
+const uploadsDir = process.env.VERCEL === '1'
+  ? path.join(os.tmpdir(), 'meeting-summarizer-uploads')
+  : path.join(process.cwd(), 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   try {
     fs.mkdirSync(uploadsDir, { recursive: true });

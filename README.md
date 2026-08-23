@@ -160,3 +160,15 @@ Start command: npm start
 ```
 
 Set `GEMINI_API_KEY`, `GEMINI_MODEL`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` as hosting environment variables. The application reads the hosting provider's `PORT` value automatically.
+
+### Deploy to Vercel
+
+This repository includes a Vercel serverless API adapter in `api/[...path].ts`.
+
+1. Import the GitHub repository into Vercel.
+2. Keep the framework preset as **Vite**.
+3. Use `npm run build` as the build command.
+4. Set the environment variables listed above in Vercel project settings.
+5. Deploy and open the generated Vercel URL.
+
+Cloudinary is required for uploaded media because Vercel's filesystem is temporary. Meeting metadata currently uses temporary storage on Vercel as well; use a hosted database for data that must survive function restarts or redeployments.

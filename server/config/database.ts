@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { IMeeting, ActionItemStatus } from '../models/Meeting.js';
 
 /**
@@ -12,7 +13,9 @@ class MeetingDatabase {
   private storageFile: string;
 
   constructor() {
-    const dataDir = path.join(process.cwd(), 'data');
+    const dataDir = process.env.VERCEL === '1'
+      ? path.join(os.tmpdir(), 'meeting-summarizer-data')
+      : path.join(process.cwd(), 'data');
     if (!fs.existsSync(dataDir)) {
       try {
         fs.mkdirSync(dataDir, { recursive: true });
