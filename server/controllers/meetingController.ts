@@ -32,7 +32,9 @@ export class MeetingController {
 
       res.status(201).json({
         success: true,
-        message: 'Meeting audio uploaded successfully. Processing started in the background.',
+        message: process.env.VERCEL === '1'
+          ? 'Meeting audio uploaded and processed successfully.'
+          : 'Meeting audio uploaded successfully. Processing started in the background.',
         data: {
           meetingId: meeting.id,
           meeting

@@ -171,4 +171,4 @@ This repository includes a Vercel serverless API adapter in `api/index.ts`.
 4. Set the environment variables listed above in Vercel project settings.
 5. Deploy and open the generated Vercel URL.
 
-Cloudinary is required for uploaded media because Vercel's filesystem is temporary. Meeting metadata currently uses temporary storage on Vercel as well; use a hosted database for data that must survive function restarts or redeployments.
+Cloudinary is required for uploaded media because Vercel's filesystem is temporary. On Vercel, video processing runs before the upload request responds because serverless functions cannot safely continue background work after responding. Meeting metadata currently uses temporary storage on Vercel as well; use a hosted database for data that must survive function restarts or redeployments.

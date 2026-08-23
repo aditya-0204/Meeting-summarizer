@@ -49,8 +49,12 @@ export class MeetingService {
       });
     }
 
-    // Trigger asynchronous background pipeline execution
-    // (Do not await so the HTTP response returns immediately with 201 Created)
+    if (process.env.VERCEL === '1') {
+      // Serverless functions can be stopped after the response is sent.
+      await this.runProcessingPipeline(id, file.path, file.mimetype);
+      return (await db.findById(id)) || newMeeting;
+    }
+
     this.runProcessingPipeline(id, file.path, file.mimetype).catch((err) => {
       console.error(`Unhandled error in background pipeline for meeting ${id}:`, err);
     });

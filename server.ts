@@ -63,7 +63,7 @@ if (process.env.VERCEL !== '1') {
       console.log(`[Meeting Summarizer] Server listening on http://0.0.0.0:${config.port}`);
     });
   }).catch((err) => {
-    console.error('Fatal server boot error:', err);
+    console.error('Fatal server boot error:', err); 
     process.exit(1);
   });
 }
