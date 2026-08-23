@@ -14,7 +14,10 @@ export async function request<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  // Uses localhost in development, but relative paths ('') on live Vercel
+  const isLocalDev = import.meta.env.DEV;
+  const BASE_URL = import.meta.env.VITE_API_URL || (isLocalDev ? 'http://localhost:3000' : '');
+  
   const url = endpoint.startsWith('http') ? endpoint : `${BASE_URL}${endpoint}`;
   
   const headers: Record<string, string> = {
