@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-import { createServer as createViteServer } from 'vite';
 import meetingRoutes from './server/routes/meetingRoutes.js';
 import { errorHandler } from './server/middleware/errorHandler.js';
 import { config } from './server/config/env.js';
@@ -41,6 +40,7 @@ export async function createApp(serveFrontend = process.env.VERCEL !== '1') {
   }
 
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa'
