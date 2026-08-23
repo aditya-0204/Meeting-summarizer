@@ -163,7 +163,7 @@ Set `GEMINI_API_KEY`, `GEMINI_MODEL`, `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_K
 
 ### Deploy to Vercel
 
-This repository includes a Vercel serverless API adapter in `api/index.ts`.
+This repository includes Vercel serverless API adapters in `api/health.ts` and `api/meetings/[...path].ts`.
 
 1. Import the GitHub repository into Vercel.
 2. Keep the framework preset as **Vite**.

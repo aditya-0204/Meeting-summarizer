@@ -4,7 +4,10 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
-    "api/[...path].ts": {
+    "api/health.ts": {
+      "maxDuration": 60
+    },
+    "api/meetings/[...path].ts": {
       "maxDuration": 60
     }
   }
